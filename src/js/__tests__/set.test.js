@@ -1,11 +1,23 @@
-import formatPhone from '../phone'
+/* eslint-disable no-unused-expressions */
+import Team, { Character } from '../set'
 
-test('should format', () => {
-  expect(formatPhone('8 (927) 000-00-00')).toBe('+79270000000')
-  expect(formatPhone('+7 960 000 00 00')).toBe('+79600000000')
-  expect(formatPhone('+86 000 000 0000')).toBe('+860000000000')
+const team = new Team()
+const gandalf = new Character('Gandalf', 'Magician')
+const shurf = new Character('Shurf', 'Assasin')
+const legolas = new Character('Legolas', 'Bowman')
+
+test('should add', () => {
+  team.add(gandalf)
+  expect(() => { team.has(gandalf) }).toBeTruthy
 })
 
-test('should error', () => {
-  expect(() => formatPhone('8 (927) 00-00')).toThrow('Short number')
+test('should add multiple', () => {
+  team.add(shurf, legolas)
+  expect(() => { team.has(shurf) }).toBeTruthy
+  expect(() => { team.has(legolas) }).toBeTruthy
+})
+
+test('should convert to array', () => {
+  team.toArray()
+  expect(() => { Array.isArray(team.members) }).toBeTruthy
 })
