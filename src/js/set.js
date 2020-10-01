@@ -25,18 +25,3 @@ export class Character {
     this.type = type
   }
 }
-
-// const gandalf = new Character('Gandalf', 'Magician')
-// const shurf = new Character('Shurf', 'Assasin')
-// const legolas = new Character('Legolas', 'Bowman')
-
-// const team = new Team()
-// console.log(team)
-// team.add(gandalf)
-// team.addAll(shurf, legolas, gandalf)
-// console.log(team)
-// console.log(Array.isArray(team.members))
-// team.toArray()
-// console.log(team)
-// team.members.push(gandalf)
-// console.log(Array.isArray(team.members))

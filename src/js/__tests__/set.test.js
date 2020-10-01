@@ -13,7 +13,7 @@ test('should add', () => {
 })
 
 test('should add multiple', () => {
-  team.add(shurf, legolas)
+  team.addAll(shurf, legolas)
   expect(() => { team.has(shurf) }).toBeTruthy
   expect(() => { team.has(legolas) }).toBeTruthy
   expect(() => { team.has(batman) }).toBeFalsy
