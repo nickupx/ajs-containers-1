@@ -5,6 +5,7 @@ const team = new Team()
 const gandalf = new Character('Gandalf', 'Magician')
 const shurf = new Character('Shurf', 'Assasin')
 const legolas = new Character('Legolas', 'Bowman')
+const batman = new Character('Batman', 'Bat')
 
 test('should add', () => {
   team.add(gandalf)
@@ -15,6 +16,7 @@ test('should add multiple', () => {
   team.add(shurf, legolas)
   expect(() => { team.has(shurf) }).toBeTruthy
   expect(() => { team.has(legolas) }).toBeTruthy
+  expect(() => { team.has(batman) }).toBeFalsy
 })
 
 test('should convert to array', () => {
