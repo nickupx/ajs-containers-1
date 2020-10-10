@@ -9,14 +9,18 @@ const batman = new Character('Batman', 'Bat')
 
 test('should add', () => {
   team.add(gandalf)
-  expect(() => { team.has(gandalf) }).toBeTruthy
+  expect(() => { team.members.has(gandalf) }).toBeTruthy
+})
+
+test('should throw error', () => {
+  expect(() => { team.add(gandalf) }).toThrowError('Already in the team')
 })
 
 test('should add multiple', () => {
   team.addAll(shurf, legolas)
-  expect(() => { team.has(shurf) }).toBeTruthy
-  expect(() => { team.has(legolas) }).toBeTruthy
-  expect(() => { team.has(batman) }).toBeFalsy
+  expect(() => { team.members.has(shurf) }).toBeTruthy
+  expect(() => { team.members.has(legolas) }).toBeTruthy
+  expect(() => { team.members.has(batman) }).toBeFalsy
 })
 
 test('should convert to array', () => {

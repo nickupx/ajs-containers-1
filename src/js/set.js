@@ -5,7 +5,11 @@ export default class Team {
   }
 
   add(character) {
-    this.members.add(character)
+    if (!this.members.has(character)) {
+      this.members.add(character)
+    } else {
+      throw new Error('Already in the team')
+    }
   }
 
   addAll(...characters) {
@@ -25,3 +29,17 @@ export class Character {
     this.type = type
   }
 }
+
+// const team = new Team()
+// const gandalf = new Character('Gandalf', 'Magician')
+// const shurf = new Character('Shurf', 'Assasin')
+// const legolas = new Character('Legolas', 'Bowman')
+// const batman = new Character('Batman', 'Bat')
+
+// team.add(gandalf)
+// team.addAll(shurf, legolas)
+// console.log(team)
+
+// team.toArray()
+
+// console.log(team.members)
