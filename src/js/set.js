@@ -5,11 +5,14 @@ export default class Team {
   }
 
   add(character) {
-    if (!this.members.has(character)) {
-      this.members.add(character)
-    } else {
-      throw new Error('Already in the team')
-    }
+    const err = new Error('Already in the team')
+    if (!Array.isArray(this.members)) {
+      if (!this.members.has(character)) {
+        this.members.add(character)
+      } else throw err
+    } else if (!this.members.includes(character)) {
+      this.members.push(character)
+    } else throw err
   }
 
   addAll(...characters) {
@@ -41,5 +44,6 @@ export class Character {
 // console.log(team)
 
 // team.toArray()
+// team.add(batman)
 
 // console.log(team.members)
