@@ -5,14 +5,11 @@ export default class Team {
   }
 
   add(character) {
-    const err = new Error('Already in the team')
-    if (!Array.isArray(this.members)) {
-      if (!this.members.has(character)) {
-        this.members.add(character)
-      } else throw err
-    } else if (!this.members.includes(character)) {
+    if (!Array.isArray(this.members) && !this.members.has(character)) {
+      this.members.add(character)
+    } else if (Array.isArray(this.members) && !this.members.includes(character)) {
       this.members.push(character)
-    } else throw err
+    } else throw new Error('Already in the team')
   }
 
   addAll(...characters) {
