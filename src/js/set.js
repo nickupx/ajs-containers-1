@@ -5,10 +5,8 @@ export default class Team {
   }
 
   add(character) {
-    if (!Array.isArray(this.members) && !this.members.has(character)) {
+    if (!this.members.has(character)) {
       this.members.add(character)
-    } else if (Array.isArray(this.members) && !this.members.includes(character)) {
-      this.members.push(character)
     } else throw new Error('Already in the team')
   }
 
@@ -19,7 +17,7 @@ export default class Team {
   }
 
   toArray() {
-    this.members = Array.from(this.members)
+    return Array.from(this.members)
   }
 }
 
