@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-export default class Team {
+export default class Team1 {
   constructor() {
     this.members = new Set()
   }
